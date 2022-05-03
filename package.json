@@ -7,8 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build_pages": "ng build --prod --deploy-url https://ega-forever.github.io/abgp/ --base-href /abgp/",
-    "deploy_pages": "npx angular-cli-ghpages --no-silent --repo=https://github.com/ega-forever/abgp.git"
+    "build_pages": "ng build --base-href /abgp-js/",
+    "deploy_pages": "npx angular-cli-ghpages --no-silent --repo=https://github.com/ega-forever/abgp-js.git"
   },
   "private": true,
   "dependencies": {

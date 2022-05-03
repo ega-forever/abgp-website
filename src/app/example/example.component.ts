@@ -16,7 +16,7 @@ import { ShowRecordsModel } from './models/ShowRecordsModel';
 })
 export class ExampleComponent implements OnInit {
 
-  settings: SettingsModel = new SettingsModel(3, 50, { min: 30, max: 50 });
+  settings: SettingsModel = new SettingsModel(3, { min: 30, max: 50 });
   record: RecordModel = new RecordModel('test', 'data', '-1');
   workers: Worker[] = [];
   workerStates: StateModel[] = [];
