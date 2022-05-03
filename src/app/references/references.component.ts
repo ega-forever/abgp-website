@@ -9,12 +9,8 @@ export class ReferencesComponent implements OnInit {
 
   public references: { title: string, url: string }[] = [
     {
-      title: 'Egor Zuev. Mokka: BFT consensus ',
-      url: 'https://arxiv.org/ftp/arxiv/papers/1901/1901.08435.pdf'
-    },
-    {
-      title: 'Diego Ongaro and John Ousterhout. In Search of an Understandable Consensus Algorithm ',
-      url: 'https://raft.github.io/raft.pdf'
+      title: 'Egor Zuev. ABGP ',
+      url: 'https://github.com/ega-forever/abgp-js'
     },
     {
       title: 'Colin J. Fidge. Timestamps in Message-Passing Systems That Preserve the Partial Ordering',

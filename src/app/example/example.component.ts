@@ -3,7 +3,6 @@ import { SettingsModel } from './models/SettingsModel';
 import { StateModel } from './models/StateModel';
 // @ts-ignore
 import crypto from 'crypto-browserify';
-import NodeStates from 'mokka/dist/consensus/constants/NodeStates';
 // @ts-ignore
 import _ from 'lodash';
 import { RecordModel } from './models/RecordModel';
