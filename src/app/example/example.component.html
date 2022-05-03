@@ -1,0 +1,117 @@
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4">Live Example</h1>
+  <p class="lead">You can try out ABGP in browser. Just fill in settings and press "play"</p>
+</div>
+
+
+<div class="row">
+  <div class="card-deck mb-3 col-lg-6 col-sm-12">
+    <div class="card mb-4 shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title">Settings</h5>
+        <form>
+          <div class="form-group">
+            <label>Amount of instances</label>
+            <input type="number" class="form-control" min="3" max="10" name="count" [(ngModel)]="settings.count">
+          </div>
+          <div class="form-group">
+            <label>connections count</label>
+            <input type="number" class="form-control" name="connectionsCount"
+                   [(ngModel)]="settings.connectionsCount">
+          </div>
+          <div class="form-group">
+            <label>gossip internal (min)</label>
+            <input type="number" class="form-control" name="gossipIntervalMin"
+                   [(ngModel)]="settings.gossipInterval.min">
+          </div>
+          <div class="form-group">
+            <label>gossip internal (max)</label>
+            <input type="number" class="form-control" name="gossipIntervalMax"
+                   [(ngModel)]="settings.gossipInterval.max">
+          </div>
+          <button type="submit" class="btn btn-primary mb-2" (click)="onPlay()">Play</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="card-deck mb-3 text-center col-lg-6 col-sm-12">
+    <table class="table table-fixed overflow-auto">
+      <thead>
+      <tr>
+        <th scope="col">worker#</th>
+        <th scope="col">info</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="text-wrap text-break" *ngFor="let worker of workers; index as i;">
+        <th scope="row">{{i + 1}}</th>
+        <td>{{workerStates[i] | json}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="card-deck mb-3 col-lg-6 col-sm-12">
+    <div class="card mb-4 shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title">Add record</h5>
+        <form>
+          <div class="form-group">
+            <label>key</label>
+            <input class="form-control" min="3" max="10" name="recordKey" [(ngModel)]="record.key">
+          </div>
+          <div class="form-group">
+            <label>value</label>
+            <input class="form-control" name="recordValue"
+                   [(ngModel)]="record.value">
+          </div>
+          <div class="form-group">
+            <label>Node</label>
+            <select class="form-select" aria-label="node" name="node" [(ngModel)]="record.nodeIndex">
+              <option [value]=i *ngFor="let worker of workers; index as i;">Node {{i + 1}}</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary mb-2" (click)="onRecord()">Add</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="card-deck mb-3 text-center col-lg-6 col-sm-12">
+
+    <div class="form-group">
+      <label>Node</label>
+      <select class="form-select" aria-label="node" name="node" [(ngModel)]="showRecords.nodeIndex" (change)="onSelectShowRecords()">
+        <option [value]=i *ngFor="let worker of workers; index as i;">Node {{i + 1}}</option>
+      </select>
+    </div>
+
+    <table class="table table-fixed overflow-auto">
+      <thead>
+      <tr>
+        <th scope="col">key</th>
+        <th scope="col">value</th>
+        <th scope="col">sig type</th>
+        <th scope="col">involved nodes</th>
+        <th scope="col">signatures</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="text-wrap text-break" *ngFor="let record of showRecords.records; index as i;">
+        <th scope="row">{{record.key}}</th>
+        <td>{{record.value}}</td>
+        <td>{{record.signatureType === 0 ? 'INTERMEDIATE' : 'MULTISIG'}}</td>
+        <td>{{record.involvedNodes}}</td>
+        <td>{{record.signaturesMap | json}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+</div>

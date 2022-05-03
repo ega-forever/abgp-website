@@ -1,0 +1,13 @@
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4">References</h1>
+
+  <div class="row">
+    <div class="col-md-12">
+      <ul class="list-group">
+        <li class="list-group-item text-break text-wrap" *ngFor="let reference of references">{{reference.title}} - <a [href]="reference.url">{{reference.url}}</a></li>
+      </ul>
+    </div>
+  </div>
+
+
+</div>
