@@ -36,7 +36,6 @@ export class ExampleComponent implements OnInit {
   }
 
   onSelectShowRecords() {
-    console.log('super', this.showRecords.nodeIndex);
     const worker = this.workers[parseInt(this.showRecords.nodeIndex, 10)];
     worker.postMessage({ type: 'get_records', args: [] });
   }
