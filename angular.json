@@ -36,6 +36,11 @@
                 "glob": "**/*",
                 "input": "./node_modules/abgp-js/dist/web/",
                 "output": "/assets/workers/"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/abgp-js/dist/implementation/",
+                "output": "/assets/workers/implementation"
               }
             ],
             "styles": [

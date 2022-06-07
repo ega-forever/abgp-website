@@ -8,6 +8,10 @@ import _ from 'lodash';
 import { RecordModel } from './models/RecordModel';
 import { ShowRecordsModel } from './models/ShowRecordsModel';
 
+import Crypto from 'abgp-js/dist/implementation/crypto/plain';
+
+const crypto = new Crypto();
+
 @Component({
   selector: 'app-example',
   templateUrl: './example.component.html',
@@ -30,8 +34,8 @@ export class ExampleComponent implements OnInit {
   ngOnInit() {
   }
 
-  onPlay() {
-    this.prepareKeys();
+  async onPlay() {
+    await this.prepareKeys();
     this.initWorkers();
   }
 
@@ -50,14 +54,14 @@ export class ExampleComponent implements OnInit {
     this.record = new RecordModel('', '', '-1');
   }
 
-  private prepareKeys() {
+  private async prepareKeys() {
     this.keys = [];
     for (let i = 0; i < this.settings.count; i++) {
-      const node = crypto.createECDH('secp256k1');
-      node.generateKeys();
+      const privateKey = await crypto.generatePrivateKey();
+      const publicKey = await crypto.getPublicKey(privateKey);
       this.keys.push({
-        privateKey: node.getPrivateKey().toString('hex'),
-        publicKey: node.getPublicKey('hex', 'compressed')
+        privateKey,
+        publicKey
       });
     }
     console.log(this.keys)
