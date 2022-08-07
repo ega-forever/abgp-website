@@ -8,7 +8,7 @@ import _ from 'lodash';
 import { RecordModel } from './models/RecordModel';
 import { ShowRecordsModel } from './models/ShowRecordsModel';
 
-import Crypto from 'abgp-js/dist/implementation/crypto/plain';
+import Crypto from 'abgp-js-modules-crypto-plain';
 
 const crypto = new Crypto();
 

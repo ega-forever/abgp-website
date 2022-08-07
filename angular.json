@@ -39,9 +39,18 @@
               },
               {
                 "glob": "**/*",
-                "input": "./node_modules/abgp-js/dist/implementation/",
-                "output": "/assets/workers/implementation"
+                "input": "./node_modules/abgp-js-modules-crypto-plain/dist/web",
+                "output": "/assets/workers/implementation/crypto"
+              },
+
+
+              {
+                "glob": "**/*",
+                "input": "./node_modules/abgp-js-modules-storage-plain/dist/web",
+                "output": "/assets/workers/implementation/storage"
               }
+
+
             ],
             "styles": [
               "src/styles.sass",
